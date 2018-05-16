@@ -35,3 +35,4 @@ Usage
 ```
 php artisan foundation:work
 ```
+
