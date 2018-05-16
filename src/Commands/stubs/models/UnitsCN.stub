@@ -1,0 +1,10 @@
+<?php
+
+namespace {{namespace}};
+
+use wiltechsteam\FoundationService\Models\UnitsCN as Units;
+
+class UnitsCN extends Units
+{
+
+}

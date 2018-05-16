@@ -1,0 +1,10 @@
+<?php
+
+namespace {{namespace}};
+
+use wiltechsteam\FoundationService\Models\PositionsCN as Positions;
+
+class PositionsCN extends Positions
+{
+
+}

@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePositionsCnTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('positions_cn', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->primary('id');
+            $table->dateTime('created_date')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->dateTime('last_modified_date')->nullable();
+            $table->uuid('last_modified_by')->nullable();
+            $table->uuid('unit_id')->nullable();
+            $table->char('name', 50)->nullable();
+            $table->string('description', 150)->nullable();
+            $table->unsignedTinyInteger('is_active')->default(0);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('positions_cn');
+    }
+}

@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUnitsCnTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('units_cn', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->primary('id');
+            $table->dateTime('created_date')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->dateTime('last_modified_date')->nullable();
+            $table->uuid('last_modified_by')->nullable();
+            $table->char('name', 50)->nullable();
+            $table->unsignedTinyInteger('type_id')->default(0);
+            $table->uuid('parent_id')->nullable();
+            $table->uuid('leader_id')->nullable();
+            $table->unsignedTinyInteger('leader_country_code')->default(0);
+            $table->text('location_code')->nullable();
+            $table->string('description', 200)->nullable();
+            $table->unsignedTinyInteger('is_active')->default(0);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('units_cn');
+    }
+}

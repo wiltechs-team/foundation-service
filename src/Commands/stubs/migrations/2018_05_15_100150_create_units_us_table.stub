@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUnitsUsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('units_us', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->primary('id');
+            $table->char('name', 50)->nullable();
+            $table->unsignedTinyInteger('type_id')->default(0);
+            $table->uuid('parent_id')->nullable();
+            $table->uuid('leader_id')->nullable();
+            $table->unsignedTinyInteger('leader_country_code')->default(0);
+            $table->text('location_code')->nullable();
+            $table->tinyInteger('status')->default(0);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('units_us');
+    }
+}
