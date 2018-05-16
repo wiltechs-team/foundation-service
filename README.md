@@ -1,9 +1,9 @@
 Foundation Service
 ======================
 
-[![Packagist](https://img.shields.io/packagist/v/goodjun/foundation-service.svg)](https://packagist.org/packages/goodjun/foundation-service)
-[![Packagist](https://img.shields.io/packagist/l/goodjun/foundation-service.svg)](https://packagist.org/packages/goodjun/foundation-service)
-[![Packagist](https://img.shields.io/packagist/dm/goodjun/foundation-service.svg)]()
+[![Packagist](https://img.shields.io/packagist/v/wiltechsteam/foundation-service.svg)](https://packagist.org/packages/goodjun/foundation-service)
+[![Packagist](https://img.shields.io/packagist/l/wiltechsteam/foundation-service.svg)](https://packagist.org/packages/goodjun/foundation-service)
+[![Packagist](https://img.shields.io/packagist/dm/wiltechsteam/foundation-service.svg)]()
 
 TL;DR
 -----
@@ -14,19 +14,19 @@ Install
 Install via composer
 
 ```
-composer require goodjun/foundation-service
+composer require wiltechsteam/foundation-service
 ```
 
 Add Service Provider to `config/app.php` in `providers` section
 
 ```php
-goodjun\FoundationService\FoundationServiceProvider::class,
+wiltechsteam\FoundationService\FoundationServiceProvider::class,
 ```
 
 Generate config file
 
 ```
-php artisan vendor:publish  --provider="goodjun\FoundationService\FoundationServiceProvider"
+php artisan vendor:publish  --provider="wiltechsteam\FoundationService\FoundationServiceProvider"
 ```
 
 Usage
