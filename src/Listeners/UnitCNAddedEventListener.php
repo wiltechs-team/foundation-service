@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class UnitCNAddedEventListener
 {
-    protected $unitsCNPath;
+    protected $unitCNPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class UnitCNAddedEventListener
      */
     public function __construct()
     {
-        $this->unitsCNPath = config('foundation.models_namespace').'\UnitsCN';
+        $this->unitCNPath = config('foundation.models_namespace').'\UnitCN';
     }
 
     /**
@@ -30,8 +30,8 @@ class UnitCNAddedEventListener
     {
         $unitData = $event->data['message'];
 
-        $unitsCNModel = new $this->unitsCNPath(PublicConverter::transform('units_cn', $unitData));
+        $unitCNModel = new $this->unitCNPath(PublicConverter::transform('units_cn', $unitData));
 
-        $unitsCNModel->save();
+        $unitCNModel->save();
     }
 }

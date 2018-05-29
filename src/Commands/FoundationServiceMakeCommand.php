@@ -79,32 +79,32 @@ class FoundationServiceMakeCommand extends Command
         );
 
         file_put_contents(
-            base_path(config('foundation.models_namespace').'/StaffsCN.php'),
+            base_path(config('foundation.models_namespace').'/StaffCN.php'),
             $this->compileStaffCNModelStub()
         );
 
         file_put_contents(
-            base_path(config('foundation.models_namespace').'/PositionsCN.php'),
+            base_path(config('foundation.models_namespace').'/PositionCN.php'),
             $this->compilePositionCNModelStub()
         );
 
         file_put_contents(
-            base_path(config('foundation.models_namespace').'/UnitsCN.php'),
+            base_path(config('foundation.models_namespace').'/UnitCN.php'),
             $this->compileUnitCNModelStub()
         );
 
         file_put_contents(
-            base_path(config('foundation.models_namespace').'/StaffsUS.php'),
+            base_path(config('foundation.models_namespace').'/StaffUS.php'),
             $this->compileStaffUSModelStub()
         );
 
         file_put_contents(
-            base_path(config('foundation.models_namespace').'/PositionsUS.php'),
+            base_path(config('foundation.models_namespace').'/PositionUS.php'),
             $this->compilePositionUSModelStub()
         );
 
         file_put_contents(
-            base_path(config('foundation.models_namespace').'/UnitsUS.php'),
+            base_path(config('foundation.models_namespace').'/UnitUS.php'),
             $this->compileUnitUSModelStub()
         );
 
@@ -130,7 +130,7 @@ class FoundationServiceMakeCommand extends Command
         return str_replace(
             '{{namespace}}',
             config('foundation.models_namespace'),
-            file_get_contents(__DIR__.'/stubs/models/StaffsCN.stub')
+            file_get_contents(__DIR__.'/stubs/models/StaffCN.stub')
         );
     }
 
@@ -140,7 +140,7 @@ class FoundationServiceMakeCommand extends Command
         return str_replace(
             '{{namespace}}',
             config('foundation.models_namespace'),
-            file_get_contents(__DIR__.'/stubs/models/PositionsCN.stub')
+            file_get_contents(__DIR__.'/stubs/models/PositionCN.stub')
         );
     }
 
@@ -149,7 +149,7 @@ class FoundationServiceMakeCommand extends Command
         return str_replace(
             '{{namespace}}',
             config('foundation.models_namespace'),
-            file_get_contents(__DIR__.'/stubs/models/UnitsCN.stub')
+            file_get_contents(__DIR__.'/stubs/models/UnitCN.stub')
         );
     }
 
@@ -158,7 +158,7 @@ class FoundationServiceMakeCommand extends Command
         return str_replace(
             '{{namespace}}',
             config('foundation.models_namespace'),
-            file_get_contents(__DIR__.'/stubs/models/StaffsUS.stub')
+            file_get_contents(__DIR__.'/stubs/models/StaffUS.stub')
         );
     }
 
@@ -168,7 +168,7 @@ class FoundationServiceMakeCommand extends Command
         return str_replace(
             '{{namespace}}',
             config('foundation.models_namespace'),
-            file_get_contents(__DIR__.'/stubs/models/PositionsUS.stub')
+            file_get_contents(__DIR__.'/stubs/models/PositionUS.stub')
         );
     }
 
@@ -177,7 +177,7 @@ class FoundationServiceMakeCommand extends Command
         return str_replace(
             '{{namespace}}',
             config('foundation.models_namespace'),
-            file_get_contents(__DIR__.'/stubs/models/UnitsUS.stub')
+            file_get_contents(__DIR__.'/stubs/models/UnitUS.stub')
         );
     }
 

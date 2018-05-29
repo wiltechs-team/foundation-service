@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class PositionUSDeletedEventListener
 {
-    protected $positionsUSPath;
+    protected $positionUSPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class PositionUSDeletedEventListener
      */
     public function __construct()
     {
-        $this->positionsUSPath = config('foundation.models_namespace').'\PositionsUS';
+        $this->positionUSPath = config('foundation.models_namespace').'\PositionUS';
     }
 
     /**
@@ -32,8 +32,8 @@ class PositionUSDeletedEventListener
 
         $positionData = PublicConverter::transform('positions_us', $positionData);
 
-        $positionsUSModel = new $this->positionsUSPath();
+        $positionUSModel = new $this->positionUSPath();
 
-        $positionsUSModel::where('id', '=', $positionData['id'])->delete();
+        $positionUSModel::where('id', '=', $positionData['id'])->delete();
     }
 }

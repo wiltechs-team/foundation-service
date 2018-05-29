@@ -9,17 +9,17 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class FoundationInitializationEventListener
 {
-    protected $staffsCNPath;
+    protected $staffCNPath;
 
-    protected $positionsCNPath;
+    protected $positionCNPath;
 
-    protected $unitsCNPath;
+    protected $unitCNPath;
 
-    protected $staffsUSPath;
+    protected $staffUSPath;
 
-    protected $positionsUSPath;
+    protected $positionUSPath;
 
-    protected $unitsUSPath;
+    protected $unitUSPath;
 
     /**
      * Create the event listener.
@@ -28,17 +28,17 @@ class FoundationInitializationEventListener
      */
     public function __construct()
     {
-        $this->staffsCNPath = config('foundation.models_namespace').'\StaffsCN';
+        $this->staffCNPath = config('foundation.models_namespace').'\StaffCN';
 
-        $this->positionsCNPath = config('foundation.models_namespace').'\PositionsCN';
+        $this->positionCNPath = config('foundation.models_namespace').'\PositionCN';
 
-        $this->unitsCNPath = config('foundation.models_namespace').'\UnitsCN';
+        $this->unitCNPath = config('foundation.models_namespace').'\UnitCN';
 
-        $this->staffsUSPath = config('foundation.models_namespace').'\StaffsUS';
+        $this->staffUSPath = config('foundation.models_namespace').'\StaffUS';
 
-        $this->positionsUSPath = config('foundation.models_namespace').'\PositionsUS';
+        $this->positionUSPath = config('foundation.models_namespace').'\PositionUS';
 
-        $this->unitsUSPath = config('foundation.models_namespace').'\UnitsUS';
+        $this->unitUSPath = config('foundation.models_namespace').'\UnitUS';
     }
 
     /**
@@ -49,17 +49,17 @@ class FoundationInitializationEventListener
      */
     public function handle(FoundationInitializationEvent $event)
     {
-        $staffsCNModel = new $this->staffsCNPath();
+        $staffCNModel = new $this->staffCNPath();
 
-        $positionsCNModel = new $this->positionsCNPath();
+        $positionCNModel = new $this->positionCNPath();
 
-        $unitsCNModel = new $this->unitsCNPath();
+        $unitCNModel = new $this->unitCNPath();
 
-        $staffsUSModel = new $this->staffsUSPath();
+        $staffUSModel = new $this->staffUSPath();
 
-        $positionsUSModel = new $this->positionsUSPath();
+        $positionUSModel = new $this->positionUSPath();
 
-        $unitsUSModel = new $this->unitsUSPath();
+        $unitUSModel = new $this->unitUSPath();
 
         $foundationData = $event->data['message'];
 
@@ -76,51 +76,51 @@ class FoundationInitializationEventListener
         $unitsUS = $foundationData['usUnits'];
 
         // CN清空Staff，插入Staff
-        $staffsCNModel::truncate();
+        $staffCNModel::truncate();
         foreach ($staffsCN as $staffCN)
         {
-            $staffCNModel = new $this->staffsCNPath(PublicConverter::transform('staffs_cn', $staffCN));
-            $staffCNModel->save();
+            $staffCNInfoModel = new $this->staffCNPath(PublicConverter::transform('staffs_cn', $staffCN));
+            $staffCNInfoModel->save();
         }
 
         // CN清空Units，插入Units
-        $unitsCNModel::truncate();
+        $unitCNModel::truncate();
         foreach ($unitsCN as $unitCN)
         {
-            $unitCNModel = new $this->unitsCNPath(PublicConverter::transform('units_cn', $unitCN));
-            $unitCNModel->save();
+            $unitCNInfoModel = new $this->unitCNPath(PublicConverter::transform('units_cn', $unitCN));
+            $unitCNInfoModel->save();
         }
 
         // CN清空Position，插入Position
-        $positionsCNModel::truncate();
+        $positionCNModel::truncate();
         foreach ($positionsCN as $positionCN)
         {
-            $positionCNModel = new $this->positionsCNPath(PublicConverter::transform('positions_cn', $positionCN));
-            $positionCNModel->save();
+            $positionCNInfoModel = new $this->positionCNPath(PublicConverter::transform('positions_cn', $positionCN));
+            $positionCNInfoModel->save();
         }
 
         // US清空Staff，插入Staff
-        $staffsUSModel::truncate();
+        $staffUSModel::truncate();
         foreach ($staffsUS as $staffUS)
         {
-            $staffUSModel = new $this->staffsUSPath(PublicConverter::transform('staffs_us', $staffUS));
-            $staffUSModel->save();
+            $staffUSInfoModel = new $this->staffUSPath(PublicConverter::transform('staffs_us', $staffUS));
+            $staffUSInfoModel->save();
         }
 
         // US清空Units，插入Units
-        $unitsUSModel::truncate();
+        $unitUSModel::truncate();
         foreach ($unitsUS as $unitUS)
         {
-            $unitUSModel = new $this->unitsUSPath(PublicConverter::transform('units_us', $unitUS));
-            $unitUSModel->save();
+            $unitUSInfoModel = new $this->unitUSPath(PublicConverter::transform('units_us', $unitUS));
+            $unitUSInfoModel->save();
         }
 
         // US清空Position，插入Position
-        $positionsUSModel::truncate();
+        $positionUSModel::truncate();
         foreach ($positionsUS as $positionUS)
         {
-            $positionUSModel = new $this->positionsUSPath(PublicConverter::transform('positions_us', $positionUS));
-            $positionUSModel->save();
+            $positionUSInfoModel = new $this->positionUSPath(PublicConverter::transform('positions_us', $positionUS));
+            $positionUSInfoModel->save();
         }
     }
 }

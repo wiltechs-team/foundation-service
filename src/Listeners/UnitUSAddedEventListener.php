@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class UnitUSAddedEventListener
 {
-    protected $unitsUSPath;
+    protected $unitUSPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class UnitUSAddedEventListener
      */
     public function __construct()
     {
-        $this->unitsUSPath = config('foundation.models_namespace').'\UnitsUS';
+        $this->unitUSPath = config('foundation.models_namespace').'\UnitUS';
     }
 
     /**
@@ -30,8 +30,8 @@ class UnitUSAddedEventListener
     {
         $unitData = $event->data['message'];
 
-        $unitsUSModel = new $this->unitsUSPath(PublicConverter::transform('units_us', $unitData));
+        $unitUSModel = new $this->unitUSPath(PublicConverter::transform('units_us', $unitData));
 
-        $unitsUSModel->save();
+        $unitUSModel->save();
     }
 }

@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class PositionCNDeletedEventListener
 {
-    protected $positionsCNPath;
+    protected $positionCNPath;
 
     /**
      * Create the event listener.
@@ -18,7 +18,7 @@ class PositionCNDeletedEventListener
      */
     public function __construct()
     {
-        $this->positionsCNPath = config('foundation.models_namespace').'\PositionsCN';
+        $this->positionCNPath = config('foundation.models_namespace').'\PositionCN';
     }
 
     /**
@@ -33,8 +33,8 @@ class PositionCNDeletedEventListener
 
         $positionData = PublicConverter::transform('positions_cn', $positionData);
 
-        $positionsCNModel = new $this->positionsCNPath();
+        $positionCNModel = new $this->positionCNPath();
 
-        $positionsCNModel::where('id', '=', $positionData['id'])->delete();
+        $positionCNModel::where('id', '=', $positionData['id'])->delete();
     }
 }

@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class StaffUSUpdatedEventListener
 {
-    protected $staffsUSPath;
+    protected $staffUSPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class StaffUSUpdatedEventListener
      */
     public function __construct()
     {
-        $this->staffsUSPath = config('foundation.models_namespace').'\StaffsUS';
+        $this->staffUSPath = config('foundation.models_namespace').'\StaffUS';
     }
 
     /**
@@ -32,12 +32,12 @@ class StaffUSUpdatedEventListener
 
         $staffData = PublicConverter::transform('staffs_us', $staffData);
 
-        $staffsUSModel = new $this->staffsUSPath();
+        $staffUSModel = new $this->staffUSPath();
 
-        $staffsUSModel = $staffsUSModel->findOrFail($staffData['id']);
+        $staffUSModel = $staffUSModel->findOrFail($staffData['id']);
 
-        $staffsUSModel->fill($staffData);
+        $staffUSModel->fill($staffData);
 
-        $staffsUSModel->save();
+        $staffUSModel->save();
     }
 }

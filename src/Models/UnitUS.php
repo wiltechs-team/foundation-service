@@ -4,7 +4,7 @@ namespace wiltechsteam\FoundationService\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UnitsUS extends Model
+class UnitUS extends Model
 {
     protected $table = 'units_us';
 

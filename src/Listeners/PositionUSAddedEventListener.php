@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class PositionUSAddedEventListener
 {
-    protected $positionsUSPath;
+    protected $positionUSPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class PositionUSAddedEventListener
      */
     public function __construct()
     {
-        $this->positionsUSPath = config('foundation.models_namespace').'\PositionsUS';
+        $this->positionUSPath = config('foundation.models_namespace').'\PositionUS';
     }
 
     /**
@@ -30,7 +30,7 @@ class PositionUSAddedEventListener
     {
         $positionData = $event->data['message'];
 
-        $positionUSModel = new $this->positionsUSPath(PublicConverter::transform('positions_us', $positionData));
+        $positionUSModel = new $this->positionUSPath(PublicConverter::transform('positions_us', $positionData));
 
         $positionUSModel->save();
     }

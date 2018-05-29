@@ -1,0 +1,10 @@
+<?php
+
+namespace {{namespace}};
+
+use wiltechsteam\FoundationService\Models\PositionUS as Position;
+
+class PositionUS extends Position
+{
+
+}

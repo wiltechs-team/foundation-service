@@ -4,9 +4,9 @@ namespace wiltechsteam\FoundationService\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UnitsCN extends Model
+class PositionCN extends Model
 {
-    protected $table = 'units_cn';
+    protected $table = 'positions_cn';
 
     public $timestamps = false;
 
@@ -16,7 +16,7 @@ class UnitsCN extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['id', 'created_date', 'created_by', 'last_modified_date', 'last_modified_by', 'name', 'type_id', 'parent_id', 'leader_id', 'leader_country_code', 'location_code', 'description', 'is_active'];
+    protected $fillable = ['id', 'created_date', 'created_by', 'last_modified_date', 'last_modified_by', 'unit_id', 'name', 'description', 'is_active'];
 
     public function setIdAttribute($value)
     {
@@ -43,19 +43,9 @@ class UnitsCN extends Model
         $this->attributes['last_modified_by'] = strtoupper($value);
     }
 
-    public function setParentIdAttribute($value)
+    public function setUnitIdAttribute($value)
     {
-        $this->attributes['parent_id'] = strtoupper($value);
-    }
-
-    public function setLeaderIdAttribute($value)
-    {
-        $this->attributes['leader_id'] = strtoupper($value);
-    }
-
-    public function setLocationCodeAttribute($value)
-    {
-        $this->attributes['location_code'] = strtoupper($value);
+        $this->attributes['unit_id'] = strtoupper($value);
     }
 
     public function setIsActiveAttribute($value)

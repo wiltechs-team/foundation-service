@@ -4,7 +4,7 @@ namespace wiltechsteam\FoundationService\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StaffsCN extends Model
+class StaffCN extends Model
 {
     protected $table = 'staffs_cn';
 

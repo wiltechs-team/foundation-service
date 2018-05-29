@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class UnitCNMovedEventListener
 {
-    protected $unitsCNPath;
+    protected $unitCNPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class UnitCNMovedEventListener
      */
     public function __construct()
     {
-        $this->unitsCNPath = config('foundation.models_namespace').'\UnitsCN';
+        $this->unitCNPath = config('foundation.models_namespace').'\UnitCN';
     }
 
     /**
@@ -32,13 +32,13 @@ class UnitCNMovedEventListener
 
         $unitData = PublicConverter::transform('units_cn', $unitData);
 
-        $unitsCNModel = new $this->unitsCNPath();
+        $unitCNModel = new $this->unitCNPath();
 
-        $unitsCNModel = $unitsCNModel->findOrFail($unitData['id']);
+        $unitCNModel = $unitCNModel->findOrFail($unitData['id']);
 
-        $unitsCNModel->fill($unitData);
+        $unitCNModel->fill($unitData);
 
-        $unitsCNModel->save();
+        $unitCNModel->save();
 
         if(isset($event->data['message']['childEntities']))
         {
@@ -48,11 +48,11 @@ class UnitCNMovedEventListener
             {
                 $childUnitData = PublicConverter::transform('units_cn', $childUnitData);
 
-                $unitsCNModel = $unitsCNModel->findOrFail($childUnitData['id']);
+                $unitCNModel = $unitCNModel->findOrFail($childUnitData['id']);
 
-                $unitsCNModel->fill($childUnitData);
+                $unitCNModel->fill($childUnitData);
 
-                $unitsCNModel->save();
+                $unitCNModel->save();
             }
         }
     }

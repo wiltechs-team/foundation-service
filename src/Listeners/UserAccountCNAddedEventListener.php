@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class UserAccountCNAddedEventListener
 {
-    protected $staffsCNPath;
+    protected $staffCNPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class UserAccountCNAddedEventListener
      */
     public function __construct()
     {
-        $this->staffsCNPath = config('foundation.models_namespace').'\StaffsCN';
+        $this->staffCNPath = config('foundation.models_namespace').'\StaffCN';
     }
 
     /**
@@ -32,12 +32,12 @@ class UserAccountCNAddedEventListener
 
         $staffData = PublicConverter::transform('staffs_cn', $staffData);
 
-        $staffsCNModel = new $this->staffsCNPath();
+        $staffCNModel = new $this->staffCNPath();
 
-        $staffsCNModel = $staffsCNModel->findOrFail($staffData['id']);
+        $staffCNModel = $staffCNModel->findOrFail($staffData['id']);
 
-        $staffsCNModel->fill($staffData);
+        $staffCNModel->fill($staffData);
 
-        $staffsCNModel->save();
+        $staffCNModel->save();
     }
 }

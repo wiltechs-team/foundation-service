@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class PositionCNAddedEventListener
 {
-    protected $positionsCNPath;
+    protected $positionCNPath;
 
     /**
      * Create the event listener.
@@ -18,7 +18,7 @@ class PositionCNAddedEventListener
      */
     public function __construct()
     {
-        $this->positionsCNPath = config('foundation.models_namespace').'\PositionsCN';
+        $this->positionCNPath = config('foundation.models_namespace').'\PositionCN';
     }
 
     /**
@@ -31,7 +31,7 @@ class PositionCNAddedEventListener
     {
         $positionData = $event->data['message'];
 
-        $positionCNModel = new $this->positionsCNPath(PublicConverter::transform('positions_cn', $positionData));
+        $positionCNModel = new $this->positionCNPath(PublicConverter::transform('positions_cn', $positionData));
 
         $positionCNModel->save();
     }

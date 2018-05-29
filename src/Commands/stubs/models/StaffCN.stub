@@ -1,0 +1,10 @@
+<?php
+
+namespace {{namespace}};
+
+use wiltechsteam\FoundationService\Models\StaffCN as Staff;
+
+class StaffCN extends Staff
+{
+
+}

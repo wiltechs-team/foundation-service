@@ -9,7 +9,7 @@ use wiltechsteam\FoundationService\Converter\PublicConverter;
 
 class UnitCNDeletedEventListener
 {
-    protected $unitsCNPath;
+    protected $unitCNPath;
     /**
      * Create the event listener.
      *
@@ -17,7 +17,7 @@ class UnitCNDeletedEventListener
      */
     public function __construct()
     {
-        $this->unitsCNPath = config('foundation.models_namespace').'\UnitsCN';
+        $this->unitCNPath = config('foundation.models_namespace').'\UnitCN';
     }
 
     /**
@@ -32,8 +32,8 @@ class UnitCNDeletedEventListener
 
         $unitData = PublicConverter::transform('units_cn', $unitData);
 
-        $unitsCNModel = new $this->unitsCNPath();
+        $unitCNModel = new $this->unitCNPath();
 
-        $unitsCNModel::where('id', '=', $unitData['id'])->delete();
+        $unitCNModel::where('id', '=', $unitData['id'])->delete();
     }
 }
