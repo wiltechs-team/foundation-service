@@ -75,6 +75,8 @@ class FoundationInitializationEventListener
 
         $unitsUS = $foundationData['usUnits'];
 
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         // CN清空Staff，插入Staff
         $staffCNModel::truncate();
         foreach ($staffsCN as $staffCN)
@@ -122,5 +124,7 @@ class FoundationInitializationEventListener
             $positionUSInfoModel = new $this->positionUSPath(PublicConverter::transform('positions_us', $positionUS));
             $positionUSInfoModel->save();
         }
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
