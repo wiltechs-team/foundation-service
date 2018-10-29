@@ -2,6 +2,7 @@
 
 namespace wiltechsteam\FoundationService\Listeners;
 
+use Illuminate\Support\Facades\DB;
 use wiltechsteam\FoundationService\Events\FoundationInitializationEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
